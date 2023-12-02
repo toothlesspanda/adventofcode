@@ -1,0 +1,21 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest",
+    "code-report": "code-complexity ./ -f table"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@jsheaven/perf": "^1.0.3",
+    "code-complexity": "^4.4.4",
+    "complexity-report": "^2.0.0-alpha",
+    "escomplex": "^2.0.0-alpha",
+    "jest": "^29.7.0",
+    "markdown-table": "^3.0.3"
+  }
+}
