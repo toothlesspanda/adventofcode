@@ -24,7 +24,7 @@ describe("day3", () => {
     let result;
 
     beforeAll(() => {
-      result = day3("input.test.txt", 2);
+      result = day3("./input.test.txt", 2);
     });
 
     test(`to contain numbers`, () => {

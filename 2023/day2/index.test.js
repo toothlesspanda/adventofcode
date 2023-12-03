@@ -8,7 +8,7 @@ describe("day2", () => {
     let result;
 
     beforeAll(() => {
-      result = day2("input.test.txt", 1);
+      result = day2("./input.test.txt", 1);
     });
 
     test(`to haven 3 games`, () => {
