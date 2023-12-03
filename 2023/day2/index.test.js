@@ -1,5 +1,7 @@
 const day2 = require("./index.js");
 
+const filename = "./2023/day2/input.test.txt";
+
 // jest --runInBand day1.test.js
 describe("day2", () => {
   let totalSuite1 = 0;
@@ -8,7 +10,7 @@ describe("day2", () => {
     let result;
 
     beforeAll(() => {
-      result = day2("./input.test.txt", 1);
+      result = day2(filename, 1);
     });
 
     test(`to haven 3 games`, () => {
@@ -24,7 +26,7 @@ describe("day2", () => {
     let result;
 
     beforeAll(() => {
-      result = day2("./input.test.txt", 2);
+      result = day2(filename, 2);
       console.log(result);
     });
 

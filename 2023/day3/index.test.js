@@ -1,12 +1,14 @@
 const day3 = require("./index.js");
 
+const filename = "./2023/day3/input.test.txt";
+
 // jest --runInBand day1.test.js
 describe("day3", () => {
   describe("part1", () => {
     let result;
 
     beforeAll(() => {
-      result = day3("./input.test.txt", 1);
+      result = day3(filename, 1);
     });
 
     test(`to contain numbers`, () => {
@@ -24,7 +26,7 @@ describe("day3", () => {
     let result;
 
     beforeAll(() => {
-      result = day3("./input.test.txt", 2);
+      result = day3(filename, 2);
     });
 
     test(`to contain numbers`, () => {
