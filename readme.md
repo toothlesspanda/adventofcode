@@ -4,7 +4,7 @@
 
 ### 2023
 - [--- Day 1: Trebuchet?! ---](/2023/day1/)
-- day2
+- [--- Day 2: Cube Conundrum ---](/2023/day2/)
 - day3
 - day4
 - day5
