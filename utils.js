@@ -40,7 +40,13 @@ function generateRandomSetDay1(length) {
   return result;
 }
 
+function checkSpecialCharacterNoPeriod(char) {
+  let specialCharactersNoPeriod = new RegExp(/([^.\w])|[_]/);
+  return specialCharactersNoPeriod.test(char);
+}
+
 module.exports = {
   isCharNumber: isCharNumber,
   generateRandomSetDay1: generateRandomSetDay1,
+  checkSpecialCharacterNoPeriod: checkSpecialCharacterNoPeriod,
 };
