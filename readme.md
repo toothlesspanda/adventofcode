@@ -1,4 +1,6 @@
-My exercises from [Advent of Code](https://adventofcode.com/) in `nodejs`
+![example workflow](https://github.com/toothlesspanda/adventofcode/actions/workflows/jest.yml/badge.svg)
+
+# [Advent of Code](https://adventofcode.com/)
 
 ### 2023
 - [--- Day 1: Trebuchet?! ---](/2023/day1/)

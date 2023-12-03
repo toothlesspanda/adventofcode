@@ -1,1 +1,0 @@
-![example workflow](https://github.com/toothlesspanda/adventofcode/actions/workflows/node.js/badge.svg) 
