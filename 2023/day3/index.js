@@ -21,7 +21,12 @@ function day3part2(content, cols, lines) {
         );
 
         let adjacentNumbers = getAdjacentNumbers(adjacentDigits, content, cols);
-        //remove duplicates
+
+        // removes duplicates
+        // duplicates might happen if the same number
+        // has digits adjacent to the same symbol
+        // but also keeping the numbers that are the same
+        // but adjacent to different symbols
         adjacentNumbers = adjacentNumbers.reduce((acc, curr) => {
           return JSON.stringify(acc).includes(JSON.stringify(curr))
             ? acc
@@ -29,7 +34,7 @@ function day3part2(content, cols, lines) {
         }, []);
 
         if (adjacentNumbers.length == 2) {
-          //multiply
+          // get ratio
           let ratio = adjacentNumbers.reduce((acc, curr) => {
             let num = parseInt(curr.number);
 
@@ -75,7 +80,11 @@ function day3part1(content, cols, lines) {
     }
   }
 
-  //clear duplicates
+  // removes duplicates
+  // duplicates might happen if the same number
+  // has digits adjacent to the same symbol
+  // but also keeping the numbers that are the same
+  // but adjacent to different symbols
   FINAL_RES = FINAL_RES.reduce((acc, curr) => {
     return JSON.stringify(acc).includes(JSON.stringify(curr))
       ? acc
@@ -97,10 +106,16 @@ function day3part1(content, cols, lines) {
   return { numbers: finalNumbers, total: sum };
 }
 
+//
+// HELPERS
+//
+
 // Positions to evaluate
 // (0,0),(1,0),(2,0)
 // (0,1),  X,  (2,1)
 // (0,2),(1,2),(2,2)
+// then remove positions
+// out of the matrix
 function getAdjacentDigits(charPosition, content, col, lines) {
   const positionsOfInterest = [
     { l: charPosition.l - 1, c: charPosition.c - 1 }, //top left
@@ -137,12 +152,20 @@ function getAdjacentDigits(charPosition, content, col, lines) {
   return adjacentNumbers;
 }
 
+// from the digits adjacent to a symbol
+// we will fetch their own
+// adjacent digits that together will form a number
 function getAdjacentNumbers(adjacentDigits, content, cols) {
   let adjacentNumbers = [];
   adjacentDigits.forEach((adjDig) => {
     let currentChar = adjDig.adjacentChar;
     let allPreviousFound,
       allNextFound = false;
+    // storing the initial position tell us if there are numbers
+    // adjacent to the same symbo
+    //   => which means duplicates
+    // if the numbers are the same,but the positions are different
+    //   => which means they are adjacent to different symbols
     let keepFirstPosition = { l: adjDig.position.l, c: adjDig.position.c };
 
     for (
@@ -153,6 +176,7 @@ function getAdjacentNumbers(adjacentDigits, content, cols) {
       let previousChar = i < 0 ? null : content[adjDig.position.l][i];
       let nextChar = j > cols ? null : content[adjDig.position.l][j];
 
+      //assess previous char and prepend to our final number
       if (
         previousChar &&
         !isNaN(parseInt(previousChar)) &&
@@ -165,6 +189,7 @@ function getAdjacentNumbers(adjacentDigits, content, cols) {
         allPreviousFound = true;
       }
 
+      //assess next char and append to our final number
       if (nextChar && !isNaN(parseInt(nextChar) && nextChar != ".")) {
         currentChar = currentChar + "" + nextChar;
         j++;
@@ -172,6 +197,7 @@ function getAdjacentNumbers(adjacentDigits, content, cols) {
         allNextFound = true;
       }
 
+      //push once all digits are found for this number
       if (allPreviousFound && allNextFound)
         adjacentNumbers.push({
           number: currentChar,
@@ -192,6 +218,7 @@ function main(filename = null, part) {
   const content = fs.readFileSync(file, "utf-8", "r+").split("\n");
   const numCol = content[0].length;
   const numLines = content.length;
+
   if (part == 1) return day3part1(content, numCol, numLines);
   if (part == 2) return day3part2(content, numCol, numLines);
 }
@@ -199,6 +226,6 @@ function main(filename = null, part) {
 //comment to run tests comment this line
 //uncomment to run the script `node index.js`
 //console.log(main(null, 1));
-console.log(main(null, 2));
+//console.log(main(null, 2));
 
 module.exports = main;

@@ -24,7 +24,7 @@ describe("day2", () => {
     let result;
 
     beforeAll(() => {
-      result = day2("input.test.txt", 2);
+      result = day2("./input.test.txt", 2);
       console.log(result);
     });
 
