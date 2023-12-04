@@ -1,8 +1,17 @@
-![example workflow](https://github.com/toothlesspanda/adventofcode/actions/workflows/jest.yml/badge.svg)
 
-# [Advent of Code](https://adventofcode.com/)
+# [Advent of Code](https://adventofcode.com/) 
 
-### 2023
+<div style="text-align: center;">
+
+![example workflow](https://github.com/toothlesspanda/adventofcode/actions/workflows/jest.yml/badge.svg) ![](https://img.shields.io/badge/💻-js-blue) ![](https://img.shields.io/badge/⭐-8-yellow)
+
+</div>
+
+<details>
+<summary>2023</summary>
+
+![](https://img.shields.io/badge/⭐-8-yellow)
+
 - [--- Day 1: Trebuchet?! ---](/2023/day1/)
 - [--- Day 2: Cube Conundrum ---](/2023/day2/)
 - [--- Day 3: Gear Ratios ---](/2023/day3/) 
@@ -28,3 +37,5 @@
 - day23
 - day24
 - day25
+
+</details>
