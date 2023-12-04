@@ -17,5 +17,8 @@
     "escomplex": "^2.0.0-alpha",
     "jest": "^29.7.0",
     "markdown-table": "^3.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0"
   }
 }

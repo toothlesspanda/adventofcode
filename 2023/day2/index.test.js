@@ -1,41 +1,39 @@
-const day2 = require("./index.js");
+const main = require("./index.js")
+const path = require("path")
 
-const filename = "./2023/day2/input.test.txt";
+const filename = path.join(__dirname, "input.test.txt")
 
 // jest --runInBand day1.test.js
 describe("day2", () => {
-  let totalSuite1 = 0;
-
   describe("part1", () => {
-    let result;
+    let result
 
     beforeAll(() => {
-      result = day2(filename, 1);
-    });
+      result = main(filename, 1)
+    })
 
     test(`to haven 3 games`, () => {
-      expect(result.games).toEqual([1, 2, 5]);
-    });
+      expect(result.games).toEqual([1, 2, 5])
+    })
 
     test(`to count`, () => {
-      expect(result.total).toBe(8);
-    });
-  });
+      expect(result.total).toBe(8)
+    })
+  })
 
   describe("part2", () => {
-    let result;
+    let result
 
     beforeAll(() => {
-      result = day2(filename, 2);
-      console.log(result);
-    });
+      result = main(filename, 2)
+    })
 
     test(`to have 5 powers`, () => {
-      expect(result.games).toEqual([48, 12, 1560, 630, 36]);
-    });
+      expect(result.games).toEqual([48, 12, 1560, 630, 36])
+    })
 
     test(`to count`, () => {
-      expect(result.total).toBe(2286);
-    });
-  });
-});
+      expect(result.total).toBe(2286)
+    })
+  })
+})

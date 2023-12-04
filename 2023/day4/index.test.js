@@ -5,7 +5,7 @@ const path = require("path")
 const filename = path.join(__dirname, "input.test.txt")
 
 // jest --runInBand day1.test.js
-describe("day3", () => {
+describe("day4", () => {
   describe("part1", () => {
     let result
 
@@ -14,13 +14,11 @@ describe("day3", () => {
     })
 
     test("to contain numbers", () => {
-      expect(result.numbers).toEqual(
-        expect.arrayContaining([467, 35, 633, 617, 592, 755, 664, 598])
-      )
+      expect(result.numbers).toEqual(expect.arrayContaining([8, 2, 2, 1, 0, 0]))
     })
 
     test("to count", () => {
-      expect(result.total).toBe(4361)
+      expect(result.total).toBe(13)
     })
   })
 
@@ -32,11 +30,11 @@ describe("day3", () => {
     })
 
     test("to contain numbers", () => {
-      expect(result.numbers).toEqual(expect.arrayContaining([16345, 451490]))
+      expect(result.numbers).toEqual(expect.arrayContaining([1, 2, 4, 8, 14, 1, 1]))
     })
 
     test("to count", () => {
-      expect(result.total).toBe(467835)
+      expect(result.total).toBe(30)
     })
   })
 })

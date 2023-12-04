@@ -5,8 +5,8 @@
 ### 2023
 - [--- Day 1: Trebuchet?! ---](/2023/day1/)
 - [--- Day 2: Cube Conundrum ---](/2023/day2/)
-- [--- Day 3: Gear Ratios ---](/2023/day3/)
-- day4
+- [--- Day 3: Gear Ratios ---](/2023/day3/) 
+- [--- Day 4: Scratchcards ---](/2023/day4/)
 - day5
 - day6
 - day7

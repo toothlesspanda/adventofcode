@@ -18,75 +18,67 @@ function getAdjacentDigits(charPosition, content, col, lines) {
     { l: charPosition.l + 1, c: charPosition.c - 1 }, // bottom left
     { l: charPosition.l + 1, c: charPosition.c }, // bottom
     { l: charPosition.l + 1, c: charPosition.c + 1 }, // bottom right
-  ];
+  ]
 
   //remove positions beyond edges
   const positionsValidated = positionsOfInterest.filter(
-    (position) =>
-      position.c > -1 &&
-      position.c < col &&
-      position.l > -1 &&
-      position.l < lines
-  );
+    (position) => position.c > -1 && position.c < col && position.l > -1 && position.l < lines
+  )
 
-  let adjacentNumbers = [];
+  let adjacentNumbers = []
   positionsValidated.forEach((position) => {
-    let adjacentChar = content[position.l][position.c];
+    let adjacentChar = content[position.l][position.c]
 
     if (!isNaN(parseInt(adjacentChar))) {
       adjacentNumbers.push({
         adjacentChar: adjacentChar,
         position: position,
-      });
+      })
     }
-  });
+  })
 
-  return adjacentNumbers;
+  return adjacentNumbers
 }
 
 // from the digits adjacent to a symbol
 // we will fetch their own
 // adjacent digits that together will form a number
 function getAdjacentNumbers(adjacentDigits, content, cols) {
-  let adjacentNumbers = [];
+  let adjacentNumbers = []
   adjacentDigits.forEach((adjDig) => {
-    let currentChar = adjDig.adjacentChar;
+    let currentChar = adjDig.adjacentChar
     let allPreviousFound,
-      allNextFound = false;
+      allNextFound = false
     // storing the initial position tell us if there are numbers
     // adjacent to the same symbo
     //   => which means duplicates
     // if the numbers are the same,but the positions are different
     //   => which means they are adjacent to different symbols
-    let keepFirstPosition = { l: adjDig.position.l, c: adjDig.position.c };
+    let keepFirstPosition = { l: adjDig.position.l, c: adjDig.position.c }
 
     for (
       i = adjDig.position.c - 1, j = adjDig.position.c + 1;
       !allPreviousFound || !allNextFound;
 
     ) {
-      let previousChar = i < 0 ? null : content[adjDig.position.l][i];
-      let nextChar = j > cols ? null : content[adjDig.position.l][j];
+      let previousChar = i < 0 ? null : content[adjDig.position.l][i]
+      let nextChar = j > cols ? null : content[adjDig.position.l][j]
 
       //assess previous char and prepend to our final number
-      if (
-        previousChar &&
-        !isNaN(parseInt(previousChar)) &&
-        previousChar != "."
-      ) {
-        currentChar = previousChar + "" + currentChar;
-        keepFirstPosition.c = i;
-        i--;
+      if (previousChar && !isNaN(parseInt(previousChar)) && previousChar != ".") {
+        currentChar = previousChar + "" + currentChar
+        keepFirstPosition.c = i
+        i--
       } else {
-        allPreviousFound = true;
+        allPreviousFound = true
       }
 
       //assess next char and append to our final number
       if (nextChar && !isNaN(parseInt(nextChar) && nextChar != ".")) {
-        currentChar = currentChar + "" + nextChar;
-        j++;
+        currentChar = currentChar + "" + nextChar
+        j++
       } else {
-        allNextFound = true;
+        allNextFound = true
       }
 
       //push once all digits are found for this number
@@ -94,14 +86,14 @@ function getAdjacentNumbers(adjacentDigits, content, cols) {
         adjacentNumbers.push({
           number: currentChar,
           initialPosition: keepFirstPosition,
-        });
+        })
     }
-  });
+  })
 
-  return adjacentNumbers;
+  return adjacentNumbers
 }
 
 module.exports = {
   getAdjacentDigits,
   getAdjacentNumbers,
-};
+}
