@@ -31,6 +31,7 @@ function day1Part2(firstColumn, secondColumn) {
 
   return total
 }
+
 //
 //  main
 //
