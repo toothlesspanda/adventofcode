@@ -43,11 +43,11 @@ function lookupNextPosition(pipesMatrix, positionsMatrix, currPosition) {
   if (AVAILABLE_TILES_names.includes(nextPositions.l.symbol)) {
     lookupNextPosition(pipesMatrix, positionsMatrix, nextPositions.l.coords)
   }
-  if (AVAILABLE_TILES_names.includes(nextPositions.u.symbol)) {
-    lookupNextPosition(pipesMatrix, positionsMatrix, nextPositions.u.coords)
+  if (AVAILABLE_TILES_names.includes(nextPositions.d.symbol)) {
+    lookupNextPosition(pipesMatrix, positionsMatrix, nextPositions.d.coords)
   }
-  if (AVAILABLE_TILES_names.includes(nextPositions.u.symbol)) {
-    lookupNextPosition(pipesMatrix, positionsMatrix, nextPositions.u.coords)
+  if (AVAILABLE_TILES_names.includes(nextPositions.r.symbol)) {
+    lookupNextPosition(pipesMatrix, positionsMatrix, nextPositions.r.coords)
   }
 }
 

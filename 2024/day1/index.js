@@ -36,7 +36,7 @@ function day1Part2(firstColumn, secondColumn) {
 //  main
 //
 function main(part) {
-  const content = fs.readFileSync("input.txt", "utf-8", "r+").split("\n")
+  const content = fs.readFileSync("./2024/day1/input.txt", "utf-8", "r+").split("\n")
 
   let arr1 = []
   let arr2 = []
